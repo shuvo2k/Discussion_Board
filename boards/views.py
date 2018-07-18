@@ -7,12 +7,12 @@ from . forms import NewTopicForm
 
 def home(request):
 	boards = Board.objects.all()
-	return render(request, 'home.html', {'boards':boards})
+	return render(request, 'includes/home.html', {'boards':boards})
 
 
 def board_topics(request, pk):
 	board = get_object_or_404(Board, pk=pk)
-	return render(request, 'topics.html', {'board':board})
+	return render(request, 'includes/topics.html', {'board':board})
 
 def new_topic(request, pk):
 	board = get_object_or_404(Board, pk=pk)
@@ -27,7 +27,7 @@ def new_topic(request, pk):
 	else:
 		form = NewTopicForm()
 
-	return render(request, 'new_topic.html', {'board':board,'form':form})
+	return render(request, 'includes/new_topic.html', {'board':board,'form':form})
 
 	#return render(request, 'new_topic.html',{'board':board})
 
