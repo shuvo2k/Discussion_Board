@@ -48,7 +48,7 @@ class SuccessfulSignUpTests(TestCase):
 		self.response = self.client.post(url, data)
 		self.home_url = reverse('home')
 
-	def test_redirection(slef):
+	def test_redirection(self):
 		'''
 		a valid form submission should redirect the user to the home
 		'''
@@ -71,13 +71,13 @@ class SuccessfulSignUpTests(TestCase):
 class InvalidSignupTests(TestCase):
 	def setUp(self):
 		url = reverse('signup')
-		self.response = self.clent.post(url, {})
+		self.response = self.client.post(url, {})
 
 	def test_signup_status_code(self):
 		'''
 		An invalid form submission should return to the same page
 		'''
-		self.assertEquals(self.response.stauts_code, 200)
+		self.assertEquals(self.response.status_code, 200)
 
 
 	def test_form_errors(self):
@@ -85,4 +85,4 @@ class InvalidSignupTests(TestCase):
 		self.assertTrue(form.errors)
 
 	def test_dont_create_user(self):
-		self.assertFalse(User.objcets.exitsts())
+		self.assertFalse(User.objects.exists())

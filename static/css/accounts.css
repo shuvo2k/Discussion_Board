@@ -1,5 +1,5 @@
 body{
-	background-image: url(../img/grey_wash.png);
+	background-image: url(../img/mekong-green.png);
 }
 
 .logo {
@@ -13,4 +13,8 @@ body{
 .logo a:hover,
 .logo a:active {
   text-decoration: none;
+}
+
+.signupform .form-group small.text-muted{
+	display: none;
 }
